@@ -1,0 +1,53 @@
+PROCEDURE [dbo].[AddEmp]
+   @Id int,  
+    @FirstName varchar(50),  
+    @LastName varchar(50),  
+    @Email varchar(50),
+	@DateOfBirth datetime,
+	@Description varchar(50)  
+    
+AS  
+  
+BEGIN  
+SET NOCOUNT ON;  
+insert into Employee(Id, FirstName, LastName, Email, DateOfBirth, Description)  
+      values(@Id, @FirstName, @LastName, @Email, @DateOfBirth, @Description)  
+END  
+
+
+
+procedure [dbo].[GetAge]    
+AS    
+BEGIN    
+     SELECT DateOfBirth FROM Employee   
+END 
+
+
+
+PROCEDURE [dbo].[GetById]
+  @Id int
+    
+AS  
+  
+BEGIN  
+SET NOCOUNT ON;  
+SELECT * from Employee where Id=@Id
+END  
+
+
+
+PROCEDURE [dbo].[UpdateEmp]
+    @Id int,  
+    @FirstName varchar(50),  
+    @LastName varchar(50),  
+    @Email varchar(50),
+	@DateOfBirth datetime,
+	@Description varchar(50) 
+ 
+AS  
+BEGIN  
+SET NOCOUNT ON;  
+UPDATE Employee SET Id=@Id,FirstName=@FirstName,LastName=@LastName,Email=@Email,DateOfBirth=@DateOfBirth, Description=@Description where Id=@Id     
+END  
+
+
